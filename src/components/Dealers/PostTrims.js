@@ -33,10 +33,8 @@ function PostTrims() {
   }, []);
   const jwt = localStorage.getItem("jwt");
   const toast = useToast();
-  const form = new FormData();
-  form.append("Name", name);
-  form.append("ModelId", selectValue);
-  form.append("Price", price);
+  const form = { Name: name, ModelId: selectValue, Price: price };
+
   const handleSubmit = (e) => {
     axios
       .post(CreateTrims, form, {
