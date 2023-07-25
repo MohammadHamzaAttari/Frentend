@@ -64,7 +64,9 @@ export default function RegisterUser() {
             duration: 9000,
             isClosable: true,
           });
-          navigate("/dealerHome/registerDealer/loginDealer");
+          navigate(
+            "https://frentend-five.vercel.app/dealerHome/registerDealer/loginDealer"
+          );
           response.json();
         } else {
           // Error!

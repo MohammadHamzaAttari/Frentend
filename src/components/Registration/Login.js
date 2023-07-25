@@ -46,7 +46,7 @@ export default function Login() {
           localStorage.setItem("jwt", jwt);
           localStorage.setItem("firstName", name);
           localStorage.setItem("userId", userId);
-          history("/");
+          history("https://frentend-five.vercel.app");
         } else {
           // Error!
           toast({
