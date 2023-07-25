@@ -55,7 +55,7 @@ export default function RegisterUser() {
       body: JSON.stringify(store),
     })
       .then((response) => {
-        if (response.status === 204) {
+        if (response.status === 200) {
           // Success!
           toast({
             title: "Account created.",
