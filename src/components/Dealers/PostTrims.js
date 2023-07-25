@@ -41,7 +41,7 @@ function PostTrims() {
     axios
       .post(CreateTrims, form, {
         headers: {
-          "content-type": "multipart/form-data",
+          "content-type": "application/json",
           Authorization: jwt,
         },
       })
