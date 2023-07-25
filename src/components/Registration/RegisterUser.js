@@ -64,7 +64,7 @@ export default function RegisterUser() {
             duration: 9000,
             isClosable: true,
           });
-          navigate("https://frentend-five.vercel.app/login");
+          navigate("/login");
           response.json();
         } else {
           let title = response.map((ex) => ex.title);
