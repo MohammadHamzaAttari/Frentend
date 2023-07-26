@@ -75,7 +75,13 @@ export default function BasicStatistics() {
       </chakra.h1>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }}>
         {isLoading ? (
-          <Spinner />
+          <Spinner
+            size='lg'
+            color='red.400'
+            alignSelf={"center"}
+            colorScheme='teal'
+            thickness='4px'
+          />
         ) : (
           <StatsCard
             title={"Users"}
