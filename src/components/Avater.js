@@ -9,10 +9,16 @@ import {
   MenuDivider,
   MenuItem,
   Text,
+  useColorModeValue,
 } from "@chakra-ui/react";
-
+import { useNavigate, Link } from "react-router-dom";
 export default function Avater() {
+  const history = useNavigate();
   const firstName = localStorage.getItem("firstName");
+  const handleLogout = () => {
+    localStorage.clear();
+    history("/Login");
+  };
   return (
     <>
       <Menu>
@@ -42,7 +48,12 @@ export default function Avater() {
           <MenuDivider />
           <MenuItem>Account Information</MenuItem>
           <MenuItem>Email Preferences</MenuItem>
-          <MenuItem>Logout</MenuItem>
+          <Button
+            onClick={handleLogout}
+            color={useColorModeValue("red.500", "white")}
+            colorScheme={"red"}>
+            Logout
+          </Button>
         </MenuList>
       </Menu>
     </>
