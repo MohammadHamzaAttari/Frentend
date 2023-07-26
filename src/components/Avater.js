@@ -50,7 +50,7 @@ export default function Avater() {
           <MenuItem>Email Preferences</MenuItem>
           <Button
             onClick={handleLogout}
-            color={useColorModeValue("black", "white")}
+            color={useColorModeValue("black", "Black")}
             colorScheme={"red"}>
             Logout
           </Button>
