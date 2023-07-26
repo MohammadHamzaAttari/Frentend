@@ -48,10 +48,7 @@ function App() {
         path='/dealerHome/registerDealer/loginDealer'
         element={<LoginDealer />}
       />
-      <Route
-        path='/dealersPortal'
-        element={<Protected Component={DealersPortal} />}
-      />
+      <Route path='/dealersPortal' element={<DealersPortal />} />
       <Route path='/ModelList' element={<ModelsList />} />
       <Route path='/registerAdmin' element={<RegisterAdmin />} />
       <Route path='/registerAdmin/loginAdmin' element={<AdminLogin />} />
