@@ -49,7 +49,7 @@ export default function BasicStatistics() {
   const [users, setUsers] = useState("");
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(GETUSERS);
+      const request = await axios.get(GetRegisteredUsers);
       setUsers(request.data);
     }
     fetchData();

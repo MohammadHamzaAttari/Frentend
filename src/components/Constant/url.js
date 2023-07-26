@@ -17,6 +17,8 @@ export const GETAll =
   "https://backendfinal.azurewebsites.net/api/Companies/All";
 export const GETUSERS =
   "https://backendfinal.azurewebsites.net/api/Account/register";
+export const GetRegisteredUsers =
+  "https://backendfinal.azurewebsites.net/api/Account/registeredUsers";
 export const RegAdmin =
   "https://backendfinal.azurewebsites.net/api/Account/RegisterAdmin";
 export const RegDealer =
