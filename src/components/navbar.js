@@ -224,32 +224,44 @@ const MobileNav = () => {
       p={4}
       display={{ md: "none" }}>
       {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+        <>
+          <MobileNavItem key={navItem.label} {...navItem} />
+        </>
       ))}
     </Stack>
   );
 };
 
-const MobileNavItem = ({ label, navItem, href }) => {
+const MobileNavItem = ({ label, children, href }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Stack spacing={4} onClick={navItem && onToggle}>
+    <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={2}
         as={Link}
-        href={href ?? "#"}
         justify={"space-between"}
         align={"center"}
         _hover={{
           textDecoration: "none",
         }}>
-        <Text
-          fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}>
-          {label}
-        </Text>
-        {navItem && (
+        <Link
+          p={2}
+          to={href ?? "#"}
+          fontSize={"sm"}
+          fontWeight={500}
+          color={"gray"}
+          _hover={{
+            textDecoration: "none",
+            color: "red.300",
+          }}>
+          <Text
+            fontWeight={600}
+            color={useColorModeValue("gray.600", "gray.200")}>
+            {label}
+          </Text>
+        </Link>
+        {children && (
           <Icon
             as={ChevronDownIcon}
             transition={"all .25s ease-in-out"}
@@ -268,8 +280,8 @@ const MobileNavItem = ({ label, navItem, href }) => {
           borderStyle={"solid"}
           borderColor={useColorModeValue("gray.200", "gray.700")}
           align={"start"}>
-          {navItem &&
-            navItem.map((child) => (
+          {children &&
+            children.map((child) => (
               <Link key={child.label} py={2} href={child.href}>
                 {child.label}
               </Link>
