@@ -39,16 +39,16 @@ function App() {
       <Route path='/models/Details/creditCard' element={<Booking />} />
       <Route path='/registerUser' element={<RegisterUser />} />
 
-      <Route
-        path='/dealerHome'
-        element={<Protected Component={DealersHome} />}
-      />
+      <Route path='/dealerHome' element={<DealersHome />} />
       <Route path='/dealerHome/registerDealer' element={<RegisterDealer />} />
       <Route
         path='/dealerHome/registerDealer/loginDealer'
         element={<LoginDealer />}
       />
-      <Route path='/dealersPortal' element={<DealersPortal />} />
+      <Route
+        path='/dealersPortal'
+        element={<Protected Component={DealersPortal} />}
+      />
       <Route path='/ModelList' element={<ModelsList />} />
       <Route path='/registerAdmin' element={<RegisterAdmin />} />
       <Route path='/registerAdmin/loginAdmin' element={<AdminLogin />} />
