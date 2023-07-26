@@ -13,7 +13,7 @@ import axios from "axios";
 import { BsPerson } from "react-icons/bs";
 import { FiServer } from "react-icons/fi";
 import { GoLocation } from "react-icons/go";
-import { GETUSERS } from "./Constant/url";
+import { GetRegisteredUsers } from "./Constant/url";
 
 function StatsCard(props) {
   const { title, stat, icon } = props;
