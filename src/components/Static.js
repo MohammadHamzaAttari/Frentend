@@ -7,6 +7,7 @@ import {
   StatLabel,
   StatNumber,
   useColorModeValue,
+  Spinner,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import axios from "axios";
