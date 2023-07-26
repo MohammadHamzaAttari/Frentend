@@ -10,6 +10,7 @@ import {
   Stack,
   Image,
   useToast,
+  Spinner,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
@@ -20,8 +21,10 @@ export default function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const store = { Email: email, Password: password };
+  const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
   const handleSignIn = () => {
+    setIsLoading(true);
     fetch(LoginUser, {
       method: "POST",
       mode: "cors",
@@ -32,6 +35,7 @@ export default function Login() {
     })
       .then((response) => {
         if (response.status === 200) {
+          setIsLoading(false);
           // Success!
           toast({
             title: "Account LoggedIn.",
@@ -49,6 +53,7 @@ export default function Login() {
           history("/");
         } else {
           // Error!
+          setIsLoading(false);
           toast({
             title: "LoggedIn Error.",
             description: "Record Not Found.",
@@ -89,12 +94,22 @@ export default function Login() {
               <Checkbox>Remember me</Checkbox>
               <Link color={"blue.500"}>Forgot password?</Link>
             </Stack>
-            <Button
-              colorScheme={"blue"}
-              variant={"solid"}
-              onClick={handleSignIn}>
-              Sign in
-            </Button>
+            {isLoading ? (
+              <Spinner
+                size='lg'
+                color='red.400'
+                alignSelf={"center"}
+                colorScheme='teal'
+                thickness='4px'
+              />
+            ) : (
+              <Button
+                colorScheme={"red"}
+                variant={"solid"}
+                onClick={handleSignIn}>
+                Sign in
+              </Button>
+            )}
           </Stack>
         </Stack>
       </Flex>

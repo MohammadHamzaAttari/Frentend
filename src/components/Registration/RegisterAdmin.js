@@ -13,6 +13,7 @@ import {
   Text,
   useColorModeValue,
   useToast,
+  Spinner,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -28,9 +29,11 @@ export default function RegisterAdmin() {
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(true);
   const [phoneNumber, setPhoneNumber] = useState("");
+
   const toast = useToast();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
+    setIsLoading(true);
     e.preventDefault();
     let store = {
       FirstName: firstName,
@@ -52,6 +55,7 @@ export default function RegisterAdmin() {
       .then((response) => {
         if (response.status === 204) {
           // Success!
+          setIsLoading(false);
           toast({
             title: "Account created.",
             description: "We've created your account for you.",
@@ -62,6 +66,7 @@ export default function RegisterAdmin() {
           navigate("/registerAdmin/loginAdmin");
         } else {
           // Error!
+          setIsLoading(false);
           toast({
             title: "Account not created.",
             description: "We can not created your account for you.",
@@ -153,18 +158,22 @@ export default function RegisterAdmin() {
                 />
               </FormControl>
               <Stack spacing={10} pt={2}>
-                <Button
-                  loadingText='Submitting'
-                  size='lg'
-                  bg={"blue.400"}
-                  color={"white"}
-                  _hover={{
-                    bg: "blue.500",
-                  }}
-                  onClick={handleSubmit}
-                  isLoading={isLoading}>
-                  Register
-                </Button>
+                {isLoading ? (
+                  <Spinner colorScheme='red' size={"lg"} thickness='4px' />
+                ) : (
+                  <Button
+                    loadingText='Submitting'
+                    size='lg'
+                    bg={"blue.400"}
+                    color={"white"}
+                    _hover={{
+                      bg: "blue.500",
+                    }}
+                    onClick={handleSubmit}
+                    isLoading={isLoading}>
+                    Register
+                  </Button>
+                )}
               </Stack>
               <Stack pt={6}>
                 <Text align={"center"}>
