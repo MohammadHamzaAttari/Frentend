@@ -47,12 +47,15 @@ function StatsCard(props) {
 
 export default function BasicStatistics() {
   const [users, setUsers] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     async function fetchData() {
+      setIsLoading(true);
       const request = await axios.get(GetRegisteredUsers);
       setUsers(request.data);
     }
     fetchData();
+    setIsLoading(true);
   }, []);
 
   return (
@@ -70,11 +73,16 @@ export default function BasicStatistics() {
         Our company is expanding, you could be too.
       </chakra.h1>
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 5, lg: 8 }}>
-        <StatsCard
-          title={"Users"}
-          stat={users.length}
-          icon={<BsPerson size={"3em"} />}
-        />
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <StatsCard
+            title={"Users"}
+            stat={users.length}
+            icon={<BsPerson size={"3em"} />}
+          />
+        )}
+
         <StatsCard
           title={"Servers"}
           stat={"12"}
