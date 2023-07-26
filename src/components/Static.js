@@ -56,7 +56,7 @@ export default function BasicStatistics() {
       setUsers(request.data);
     }
     fetchData();
-    setIsLoading(true);
+    setIsLoading(false);
   }, []);
 
   return (
