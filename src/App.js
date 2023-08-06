@@ -54,7 +54,7 @@ function App() {
         <Route path='/ModelList' element={<ModelsList />} />
         <Route path='/registerAdmin' element={<RegisterAdmin />} />
         <Route path='/registerAdmin/loginAdmin' element={<AdminLogin />} />
-        <Route path='/admin' element={<Protected Component={Admin} />} />
+        <Route path='/admin' element={<Admin />} />
         <Route path='*' element={<NoPage></NoPage>} />
       </Routes>
       <LargeWithLogoCentered />
