@@ -41,8 +41,9 @@ export default function AdminLogin() {
           const jwt = response.headers.get("Authorization");
           const name = response.headers.get("FirstName");
           const userId = response.headers.get("UserId");
+          const data = { token: jwt, id: userId, Name: name };
 
-          history("/admin", { state: store });
+          history("/admin", { state: data });
         } else {
           console.log(response.statusText);
           // Error!

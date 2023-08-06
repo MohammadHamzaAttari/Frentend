@@ -62,8 +62,7 @@ const LinkItems = [
 
 export default function Admin({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const location = useLocation();
-  console.log(location.state);
+
   return (
     <>
       <Box minH='100vh' bg={useColorModeValue("gray.100", "gray.900")}>
@@ -223,6 +222,8 @@ const NavItem = ({ icon, children, ...rest }) => {
 
 const MobileNav = ({ onOpen, ...rest }) => {
   const history = useNavigate();
+  const location = useLocation();
+  const msg = location.state;
   const { colorMode, toggleColorMode } = useColorMode();
   function handleSignOut() {
     localStorage.clear();
@@ -283,7 +284,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   alignItems='flex-start'
                   spacing='1px'
                   ml='2'>
-                  <Text fontSize='sm'>{localStorage.getItem("firstName")}</Text>
+                  <Text fontSize='sm'>{msg.data.Name}</Text>
                   <Text fontSize='xs' color='gray.600'>
                     Admin
                   </Text>
