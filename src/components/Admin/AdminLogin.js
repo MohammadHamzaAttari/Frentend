@@ -41,16 +41,8 @@ export default function AdminLogin() {
           const jwt = response.headers.get("Authorization");
           const name = response.headers.get("FirstName");
           const userId = response.headers.get("UserId");
-          if (typeof Storage !== "undefined") {
-            localStorage.setItem("jwt", jwt);
-            localStorage.setItem("firstName", name);
-            localStorage.setItem("userId", userId);
-          } else {
-            // localStorage is not supported
-            // Handle the lack of support here
-          }
 
-          history("/admin");
+          history("/admin", { state: [jwt, userId, name] });
         } else {
           console.log(response.statusText);
           // Error!

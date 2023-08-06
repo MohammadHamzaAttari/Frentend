@@ -1,6 +1,6 @@
 import React from "react";
 import { SimpleGrid, Box, Spinner } from "@chakra-ui/react";
-import CardFun from "../Card";
+
 import DealerCard from "./DealerCard";
 export default function DealerContent(props) {
   return (

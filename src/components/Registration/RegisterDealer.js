@@ -44,11 +44,7 @@ export default function RegisterUser() {
       Email: email,
       PhoneNumber: phoneNumber,
     };
-    const handleError = (value) => {
-      if (value.response.status === 400) {
-        console.log(value.response.data.error);
-      }
-    };
+
     fetch(RegDealer, {
       method: "POST",
       mode: "cors",
@@ -58,7 +54,7 @@ export default function RegisterUser() {
       body: JSON.stringify(store),
     })
       .then((response) => {
-        if (response.status === 204) {
+        if (response.status === 200) {
           // Success!
           setIsLoading(false);
           toast({

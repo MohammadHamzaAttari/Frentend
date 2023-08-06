@@ -1,9 +1,9 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import NoPage from "./components/NoPage";
 import Home from "./components/Pages/Home";
-import { Container } from "@chakra-ui/react";
+
 import DealersHome from "./components/Dealers/DealersHome";
 import Admin from "./components/Admin/Admin";
 import Models from "./components/Pages/Models";
@@ -16,12 +16,12 @@ import LoginDealer from "./components/Dealers/LoginDealer";
 import AdminLogin from "./components/Admin/AdminLogin";
 import MDetails from "./components/Pages/MDetails";
 import Company from "./components/Pages/company";
-import CreditCardForm from "./components/CreditCard";
+import WithSubnavigation from "./components/navbar";
 import Booking from "./components/Pages/Booking";
 import About from "./components/About";
 import ModelsList from "./components/Pages/ModelsList";
 import Protected from "./Protected";
-
+import LargeWithLogoCentered from "./components/Footer";
 function App() {
   const [data, setData] = useState();
   const handleData = (v) => {
@@ -29,32 +29,36 @@ function App() {
   };
 
   return (
-    <Routes>
-      <Route path='/' element={<Home fetch={handleData} />} />
-      <Route path='/companies' element={<Company />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/contact' element={<About />} />
-      <Route path='/models' element={<Models dataId={data} />} />
-      <Route path='/models/Details' element={<MDetails />} />
-      <Route path='/models/Details/creditCard' element={<Booking />} />
-      <Route path='/registerUser' element={<RegisterUser />} />
+    <div>
+      <WithSubnavigation />
+      <Routes>
+        <Route path='/' element={<Home fetch={handleData} />} />
+        <Route path='/companies' element={<Company />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/contact' element={<About />} />
+        <Route path='/models' element={<Models dataId={data} />} />
+        <Route path='/models/Details' element={<MDetails />} />
+        <Route path='/models/Details/creditCard' element={<Booking />} />
+        <Route path='/registerUser' element={<RegisterUser />} />
 
-      <Route path='/dealerHome' element={<DealersHome />} />
-      <Route path='/dealerHome/registerDealer' element={<RegisterDealer />} />
-      <Route
-        path='/dealerHome/registerDealer/loginDealer'
-        element={<LoginDealer />}
-      />
-      <Route
-        path='/dealersPortal'
-        element={<Protected Component={DealersPortal} />}
-      />
-      <Route path='/ModelList' element={<ModelsList />} />
-      <Route path='/registerAdmin' element={<RegisterAdmin />} />
-      <Route path='/registerAdmin/loginAdmin' element={<AdminLogin />} />
-      <Route path='/admin' element={<Protected Component={Admin} />} />
-      <Route path='*' element={<NoPage></NoPage>} />
-    </Routes>
+        <Route path='/dealerHome' element={<DealersHome />} />
+        <Route path='/dealerHome/registerDealer' element={<RegisterDealer />} />
+        <Route
+          path='/dealerHome/registerDealer/loginDealer'
+          element={<LoginDealer />}
+        />
+        <Route
+          path='/dealersPortal'
+          element={<Protected Component={DealersPortal} />}
+        />
+        <Route path='/ModelList' element={<ModelsList />} />
+        <Route path='/registerAdmin' element={<RegisterAdmin />} />
+        <Route path='/registerAdmin/loginAdmin' element={<AdminLogin />} />
+        <Route path='/admin' element={<Protected Component={Admin} />} />
+        <Route path='*' element={<NoPage></NoPage>} />
+      </Routes>
+      <LargeWithLogoCentered />
+    </div>
   );
 }
 

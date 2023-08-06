@@ -4,14 +4,9 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
-  FormControl,
-  Input,
   Button,
-  FormLabel,
-  Spacer,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import PostAdmin from "./PostAdmin";
@@ -54,7 +49,7 @@ import PostTrims from "./PostTrims";
 import Users from "./Users";
 import Booking from "./Booking";
 import Feedback from "./Feedback";
-
+import { useLocation } from "react-router-dom";
 const LinkItems = [
   { name: "Company", icon: SiBrandfolder },
   { name: "Model", icon: RxBoxModel },
@@ -67,6 +62,8 @@ const LinkItems = [
 
 export default function Admin({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const location = useLocation();
+  console.log(location.state[2]);
   return (
     <>
       <Box minH='100vh' bg={useColorModeValue("gray.100", "gray.900")}>

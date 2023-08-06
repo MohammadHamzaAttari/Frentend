@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 
 import {
   IconButton,
@@ -8,7 +7,6 @@ import {
   Flex,
   Icon,
   useColorModeValue,
-  Link,
   Drawer,
   DrawerContent,
   Text,
@@ -17,16 +15,8 @@ import {
   Heading,
   Select,
   Spinner,
-  VStack,
 } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-} from "react-icons/fi";
+import { FiCompass, FiMenu } from "react-icons/fi";
 import { IoLogoModelS } from "react-icons/io";
 import { BsCarFront } from "react-icons/bs";
 import { AiOutlineDollarCircle } from "react-icons/ai";
