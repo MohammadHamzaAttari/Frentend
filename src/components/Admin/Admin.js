@@ -63,7 +63,7 @@ const LinkItems = [
 export default function Admin({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const location = useLocation();
-  console.log(location.state[2]);
+  console.log(location.state);
   return (
     <>
       <Box minH='100vh' bg={useColorModeValue("gray.100", "gray.900")}>
