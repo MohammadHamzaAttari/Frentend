@@ -224,6 +224,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
   const history = useNavigate();
   const location = useLocation();
   const msg = location.state;
+  console.log(msg);
   const { colorMode, toggleColorMode } = useColorMode();
   function handleSignOut() {
     localStorage.clear();
@@ -284,7 +285,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   alignItems='flex-start'
                   spacing='1px'
                   ml='2'>
-                  <Text fontSize='sm'>{msg.data.Name}</Text>
+                  <Text fontSize='sm'>Name</Text>
                   <Text fontSize='xs' color='gray.600'>
                     Admin
                   </Text>
