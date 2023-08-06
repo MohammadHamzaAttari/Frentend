@@ -33,7 +33,6 @@ export default function RegisterAdmin() {
   const toast = useToast();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
-    setIsLoading(true);
     e.preventDefault();
     let store = {
       FirstName: firstName,
@@ -42,6 +41,7 @@ export default function RegisterAdmin() {
       Email: email,
       PhoneNumber: phoneNumber,
     };
+    setIsLoading(true);
     fetch(RegAdmin, {
       method: "POST",
       mode: "cors",
