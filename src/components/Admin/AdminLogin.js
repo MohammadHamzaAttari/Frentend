@@ -42,7 +42,7 @@ export default function AdminLogin() {
           const name = response.headers.get("FirstName");
           const userId = response.headers.get("UserId");
 
-          history("/admin", { state: [jwt, userId, name] });
+          history("/admin", { state: store });
         } else {
           console.log(response.statusText);
           // Error!
