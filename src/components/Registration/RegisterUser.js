@@ -174,10 +174,10 @@ export default function RegisterUser() {
                   <Button
                     loadingText='Submitting'
                     size='lg'
-                    bg={"blue.400"}
+                    bg={"red.400"}
                     color={"white"}
                     _hover={{
-                      bg: "blue.500",
+                      bg: "red",
                     }}
                     onClick={handleSubmit}>
                     Register
@@ -186,8 +186,8 @@ export default function RegisterUser() {
               </Stack>
               <Stack pt={6}>
                 <Text align={"center"}>
-                  Already a user?{" "}
-                  <Link href={"/login"} color={"blue.400"}>
+                  Already a user?
+                  <Link href={"/login"} color={"red"}>
                     Login
                   </Link>
                 </Text>

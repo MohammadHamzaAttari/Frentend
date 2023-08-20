@@ -60,7 +60,7 @@ function CardFun(props) {
           overflow='hidden'
           onClick={handleClick}>
           <Image
-            src={`data:image/jpeg;base64,${props.image}`}
+            src={`data:image/png;base64,${props.image}`}
             alt={property.imageAlt}
           />
 
