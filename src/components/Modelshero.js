@@ -20,7 +20,7 @@ function Modelshero(props) {
 
   return (
     <Flex>
-      <ModelsSideBar data={result} />
+      {/*<ModelsSideBar data={result} />*/}
       <ModelsCards data={company} />
     </Flex>
   );

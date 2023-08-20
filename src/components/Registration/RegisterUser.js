@@ -44,11 +44,7 @@ export default function RegisterUser() {
       Email: email,
       PhoneNumber: phoneNumber,
     };
-    const handleError = (value) => {
-      if (value.response.status === 400) {
-        console.log(value.response.data.error);
-      }
-    };
+
     fetch(GETUSERS, {
       method: "POST",
       mode: "cors",
@@ -71,10 +67,9 @@ export default function RegisterUser() {
           navigate("/login");
           response.json();
         } else {
-          let title = response.map((ex) => ex.title);
           setIsLoading(false);
           toast({
-            title: { title },
+            title: { Failed },
             description: "See network tab for Details",
             status: "error",
             duration: 9000,
