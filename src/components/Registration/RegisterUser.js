@@ -177,7 +177,7 @@ export default function RegisterUser() {
                     bg={"red.400"}
                     color={"white"}
                     _hover={{
-                      bg: "red",
+                      bg: "red.500",
                     }}
                     onClick={handleSubmit}>
                     Register
@@ -187,7 +187,7 @@ export default function RegisterUser() {
               <Stack pt={6}>
                 <Text align={"center"}>
                   Already a user?
-                  <Link href={"/login"} color={"red"}>
+                  <Link href={"/login"} color={"red.400"} fontWeight={"bold"}>
                     Login
                   </Link>
                 </Text>
