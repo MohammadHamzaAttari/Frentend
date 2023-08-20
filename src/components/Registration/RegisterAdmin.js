@@ -164,21 +164,20 @@ export default function RegisterAdmin() {
                   <Button
                     loadingText='Submitting'
                     size='lg'
-                    bg={"blue.400"}
+                    bg={"red.400"}
                     color={"white"}
                     _hover={{
-                      bg: "blue.500",
+                      bg: "red.500",
                     }}
-                    onClick={handleSubmit}
-                    isLoading={isLoading}>
+                    onClick={handleSubmit}>
                     Register
                   </Button>
                 )}
               </Stack>
               <Stack pt={6}>
                 <Text align={"center"}>
-                  Already a user?{" "}
-                  <Link to={"/registerAdmin/loginAdmin"} color={"blue.400"}>
+                  Already a user?
+                  <Link href={"/login"} color={"red.400"} fontWeight={"bold"}>
                     Login
                   </Link>
                 </Text>
