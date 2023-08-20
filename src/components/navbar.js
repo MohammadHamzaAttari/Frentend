@@ -104,7 +104,7 @@ export default function WithSubnavigation() {
                 fontWeight={600}
                 color={"white"}
                 bg={"red.300"}
-                colorScheme='teal'>
+                colorScheme='red'>
                 <Link to='/registerUser'>Register</Link>
               </Button>
             ) : (
