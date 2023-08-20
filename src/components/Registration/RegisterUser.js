@@ -69,7 +69,7 @@ export default function RegisterUser() {
         } else {
           setIsLoading(false);
           toast({
-            title: { Failed },
+            title: "Failed",
             description: "See network tab for Details",
             status: "error",
             duration: 9000,
